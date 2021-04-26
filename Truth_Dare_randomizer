@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+
+namespace Truth_Dare_randomizer
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("This is a 2 player game");
+            Console.WriteLine("If you wanna play again then you can basically just restart the app.");
+            string option;
+            while (true)
+            {
+                Console.WriteLine("Type Truth or Dare");
+                string truth_dare = Console.ReadLine();
+                option = truth_dare.ToLower();
+                if (option == "truth" || option == "dare")
+                {
+                    break;
+                }
+                else
+                {
+                    Console.Clear();
+                }
+            }
+            // This top group is the one that has the group of truth
+            string[] group_truth = { "What is your deepest darkest secret.",
+                                     "What's your biggest fear?",
+                                     "Have you ever had a girlfriend and if so what happened.",
+                                     "What's your biggest fantasy?",
+                                     "What's your biggest insecurity?"};
+            //This group has all the dares
+            string[] group_dare = {"I dare u to drink a whole glass of milk.",
+                                   "I dare u to give a foot massage to the second person.",
+                                   "I dare u to let the second person send a mean message to your best friend",
+                                   "I dare u to Entertain me with your best five minute comedy act",
+                                   "I dare u to Call a Chinese restaurant and order a pizza."};
+            var rand = new Random();
+            int rand_nums=rand.Next(1,6);
+            if (option == "truth") {
+                Console.WriteLine(group_truth[rand_nums-1]);
+            }else
+            {
+                Console.WriteLine(group_dare[rand_nums - 1]);
+            }
+        }
+    }
+}
