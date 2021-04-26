@@ -1,0 +1,123 @@
+package Java.StarterPack;
+
+import java.util.Scanner;
+import java.util.Random;
+
+public class Main {
+
+    public static void main(String[] args)
+    {
+        Scanner user_input=new Scanner(System.in);
+        System.out.println("This app is for flashcards.");
+        System.out.println("This will only be able to hold 5 flashcards.");
+        boolean retry=true;
+        while(retry==true)
+        {
+            int max=5;
+            int min=1;
+            int random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
+            System.out.println("Please write your flashcards then plz wait 30 min before playing for the best outcome.");
+            String flash_card1=user_input.nextLine();
+            String answer1=user_input.nextLine();
+            String flash_card2=user_input.nextLine();
+            String answer2=user_input.nextLine();
+            String flash_card3=user_input.nextLine();
+            String answer3=user_input.nextLine();
+            String flash_card4=user_input.nextLine();
+            String answer4=user_input.nextLine();
+            String flash_card5=user_input.nextLine();
+            String answer5=user_input.nextLine();
+            switch(random_int)
+            {
+                case 1:
+                    if(random_int==1)
+                    {
+                        System.out.println("This is the question."+flash_card1);
+                        String answering=user_input.nextLine();
+                        if(answering.equals(answer1))
+                        {
+                            System.out.println("Yes you got it correct nice job.");
+                        }
+                        else
+                        {
+                            System.out.println("You go it wrong.");
+                            System.out.println("This was the answer."+answer1);
+                        }
+                    }
+                break;
+                case 2:
+                    if(random_int==2)
+                    {
+                        System.out.println("This is the question."+flash_card2);
+                        String answering=user_input.nextLine();
+                        if(answering.equals(answer2))
+                        {
+                            System.out.println("Yes you got it correct nice job.");
+                        }
+                        else
+                        {
+                            System.out.println("You go it wrong.");
+                            System.out.println("This was the answer."+answer2);
+                        }
+                    }
+                break;
+                case 3:
+                    if(random_int==3)
+                    {
+                        System.out.println("This is the question."+flash_card3);
+                        String answering=user_input.nextLine();
+                        if(answering.equals(answer3))
+                        {
+                            System.out.println("Yes you got it correct nice job.");
+                        }
+                        else
+                        {
+                            System.out.println("You go it wrong.");
+                            System.out.println("This was the answer."+answer3);
+                        }
+                    }
+                break;
+                case 4:
+                    if(random_int==4)
+                    {
+                        System.out.println("This is the question."+flash_card4);
+                        String answering=user_input.nextLine();
+                        if(answering.equals(answer4))
+                        {
+                            System.out.println("Yes you got it correct nice job.");
+                        }
+                        else
+                        {
+                            System.out.println("You go it wrong.");
+                            System.out.println("This was the answer."+answer4);
+                        }
+                    }
+                break;
+                case 5:
+                    if(random_int==5)
+                    {
+                        System.out.println("This is the question."+flash_card5);
+                        String answering=user_input.nextLine();
+                        if(answering.equals(answer5))
+                        {
+                            System.out.println("Yes you got it correct nice job.");
+                        }
+                        else
+                        {
+                            System.out.println("You go it wrong.");
+                            System.out.println("This was the answer."+answer5);
+                        }
+                    }
+                break;
+            }
+            System.out.println("Do u want to study some more.");
+            String stop=user_input.next();
+            String exit="No";
+            String exit2="no";
+            if(stop.equals(exit) || stop.equals(exit2))
+            {
+                break;
+            }
+        }
+    }
+}
