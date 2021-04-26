@@ -1,0 +1,176 @@
+using System;
+using System.Collections.Generic;
+
+namespace Tic_tac_toe
+{
+    class Program
+    {
+        public char[,] position ={{'*','*','*'},
+                                 {'*','*','*'},
+                                 {'*','*','*'}};
+        bool player1Won = false;
+        bool player2Won = false;
+        bool tie = false;
+
+        public void DrawBoard()
+        {
+            for(int i=0;i<3;i++)
+            {
+                Console.Write("| ");
+                for (int j=0;j<3;j++)
+                {
+                    Console.Write(" " + position[i,j] + " ");
+                    Console.Write(" |");
+                }
+                Console.WriteLine();
+                Console.WriteLine(" ----  ----  ----");
+            }
+
+        }
+
+        static void Main(string[] args)
+        {
+            Program program = new Program();
+            int player1_wins = 0;
+            int player2_wins = 0;
+            int tie = 0;
+            bool player1 = true;
+            char  Player1 = 'X';
+            char Player2 = 'O';
+            while (true)
+            {
+                if (player1 == true)
+                {
+                    Console.WriteLine("You are X.");
+                }
+                else if(player1 == false)
+                {
+                    Console.WriteLine("You are O.");
+                }
+                if (player1 == true)
+                {
+                    Console.WriteLine("Player 1 choose a colum number between 0-2.");
+                }
+                else if (player1 == false)
+                {
+                    Console.WriteLine("Player 2 choose a colum number between 0-2");
+                }
+                int colum = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("and now plz select a row number between 0-2.");
+                int row = Convert.ToInt32(Console.ReadLine());
+                //Code is for where to put the x and O for the 2 players.
+                if(Player1 == program.position[colum, row] && Player2 == program.position[colum, row])
+                {
+                    Console.WriteLine("This is not gonna show up cause its stupid yah its stupid");
+                }
+                if (player1 == true)
+                {
+                    // should be row, column.
+                    program.position[colum, row] = Player1;
+                }
+                // if player1 does not equal true, wont it automatically equal false? you don't need to check
+                else if (player1 == false)
+                {
+                    program.position[colum, row] = Player2;
+                }
+                if (player1 == true)
+                {
+                    player1 = false;
+                }
+                else
+                {
+                    player1 = true;
+                }
+
+                //List of Player 1 wins
+                if(player1 == true && program.position[0,0] == Player1 && program.position[1,1] == Player1 && program.position[2, 2] == Player1 )
+                {
+                    Console.WriteLine("Player 1 wins");
+                    player1_wins++;
+                    Console.WriteLine("Player 1 won this many times:" + player1_wins);
+                }
+                else if(player1 == true && program.position[1, 0] == Player1 && program.position[1, 1] == Player1 && program.position[1, 2] == Player1)
+                {
+                    Console.WriteLine("Player 1 wins.");
+                    player1_wins++;
+                    Console.WriteLine("Player 1 won this many times:" + player1_wins);
+                }
+                else if(player1 == true && program.position[2,0] == Player1 && program.position[2, 1] == Player1 && program.position[2, 2] == Player1)
+                {
+                    Console.WriteLine("Player 1 wins.");
+                    player1_wins++;
+                    Console.WriteLine("Player 1 won this many times:" + player1_wins);
+                }
+                else if(player1 == true && program.position[0, 1] == Player1 && program.position[1, 1] == Player1 && program.position[2, 2] == Player1)
+                {
+                    Console.WriteLine("Player 1 wins.");
+                    player1_wins++;
+                    Console.WriteLine("Player 1 won this many times:" + player1_wins);
+                }
+                else if(player1 == true && program.position[1, 1] == Player1 && program.position[2, 0] == Player1 && program.position[0, 1] == Player1 && program.position[0, 2] == Player1)
+                {
+                    Console.WriteLine("Player 1 wins.");
+                    player1_wins++;
+                    Console.WriteLine("Player 1 won this many times:" + player1_wins);
+                }
+                else if(player1 == true && program.position[0,2] == Player1 && program.position[2,2] == Player1 && program.position[1, 2] == Player1)
+                {
+                    Console.WriteLine("Player 1 wins.");
+                    player1_wins++;
+                    Console.WriteLine("Player 1 won this many times:" + player1_wins);
+                }
+
+                //List of Player 2 wins
+                if (player1 == false && program.position[0, 0] == Player2 && program.position[1, 1] == Player2 && program.position[2, 2] == Player2)
+                {
+                    Console.WriteLine("Player 2 wins");
+                    player2_wins++;
+                    Console.WriteLine("Player 2 won this many times:" + player2_wins);
+                }
+                else if (player1 == false && program.position[1, 0] == Player2 && program.position[1, 1] == Player2 && program.position[1, 2] == Player2)
+                {
+                    Console.WriteLine("Player 2 wins.");
+                    player2_wins++;
+                    Console.WriteLine("Player 2 won this many times:" + player2_wins);
+                }
+                else if (player1 == false && program.position[2, 0] == Player2 && program.position[2, 1] == Player2 && program.position[2, 2] == Player2)
+                {
+                    Console.WriteLine("Player 2 wins.");
+                    player2_wins++;
+                    Console.WriteLine("Player 2 won this many times:" + player2_wins);
+                }
+                else if (player1 == false && program.position[0, 1] == Player2 && program.position[1, 1] == Player2 && program.position[2, 2] == Player2)
+                {
+                    Console.WriteLine("Player 2 wins.");
+                    player2_wins++;
+                    Console.WriteLine("Player 2 won this many times:" + player2_wins);
+                }
+                else if (player1 == false && program.position[1, 1] == Player2 && program.position[2, 0] == Player2 && program.position[0, 2] == Player2)
+                {
+                    Console.WriteLine("Player 2 wins.");
+                    player2_wins++;
+                    Console.WriteLine("Player 2 won this many times:" + player2_wins);
+                }
+                else if (player1 == false && program.position[0, 2] == Player2 && program.position[2, 2] == Player2 && program.position[1, 2] == Player2)
+                {
+                    Console.WriteLine("Player 2 wins.");
+                    player2_wins++;
+                    Console.WriteLine("Player 2 won this many times:" + player2_wins);
+                }
+                Console.WriteLine(" ----- ----- ----");
+                program.DrawBoard();
+            }
+        }
+        public bool checkVerticalWin(bool player1)
+        {
+            for(int colum = 0;colum <= 2;colum++)
+            {
+                for(int row = 0;row<=2;row++)
+                {
+
+                }
+            }
+            return false;
+        }
+    }
+}
