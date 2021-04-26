@@ -1,0 +1,23 @@
+namespace Name_encoder
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Please input your first name.");
+            string user_name = Console.ReadLine();
+            Console.WriteLine("Now that you did that plz input a number to add it by.");
+            int user_input = Convert.ToInt32(Console.ReadLine());
+            char[] encoder= new char[user_name.Length];
+            Console.WriteLine("Thank you for inputing the values.Hit return or enter to continue");
+            Console.ReadLine();
+            Console.Clear();
+            for (int i=0;i<user_name.Length;i++)
+            {
+                encoder[i] = user_name[i];
+                encoder[i] += (char)user_input;
+                Console.Write(encoder[i]);
+            }
+        }
+    }
+}
